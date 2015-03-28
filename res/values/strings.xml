@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ZaleChat</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    
+    <!-- 自定义标签导航栏 -->
+    <string name="tabbar_contacts">会话</string>
+    <string name="tabbar_mainframe">通讯录</string>
+    <string name="tabbar_discover">发现</string>
+    <string name="tabbar_me">我</string>
+
+</resources>
