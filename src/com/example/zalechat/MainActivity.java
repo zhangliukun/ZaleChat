@@ -3,9 +3,13 @@ package com.example.zalechat;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.zalezone.domain.UserInfo;
 import cn.zalezone.ui.color.ChangeIconColor;
+import cn.zalezone.ui.fragment.FriendListFragment;
 import cn.zalezone.ui.fragment.SessionListFragment;
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -13,8 +17,13 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.PopupMenu;
+import android.widget.PopupMenu.OnMenuItemClickListener;
 
 public class MainActivity extends FragmentActivity implements OnClickListener, OnPageChangeListener {
 
@@ -22,27 +31,36 @@ public class MainActivity extends FragmentActivity implements OnClickListener, O
     private List<Fragment>        mTabs         = new ArrayList<Fragment>();
     private FragmentPagerAdapter  fragmentPagerAdapter;
     private List<ChangeIconColor> tabIndicators = new ArrayList<ChangeIconColor>();
-    private String[]              fragmentTitle = new String[]{"tab1","tab2","tab3","tab4"};
+    private String[]              fragmentTitle = new String[] { "tab1", "tab2", "tab3", "tab4" };
+
+    private Button                searchButton;
+    private Button                moreButton;
+
+    private PopupMenu             pop;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        initTabView();
+        initUI();
         initDatas();
         mViwePager.setAdapter(fragmentPagerAdapter);
         initEvent();
-
     }
-
 
     /**
      * 初始化选项卡
      */
-    private void initTabView() {
+    private void initUI() {
+
+        // 初始化顶部导航栏的按钮
+        searchButton = (Button) findViewById(R.id.top_tab_search);
+        moreButton = (Button) findViewById(R.id.top_tab_more);
+
+        // 初始化Viewpager
         mViwePager = (ViewPager) findViewById(R.id.id_viewpager);
 
+        // 初始化底部导航栏组件
         ChangeIconColor one = (ChangeIconColor) findViewById(R.id.id_indicator_one);
         ChangeIconColor two = (ChangeIconColor) findViewById(R.id.id_indicator_two);
         ChangeIconColor three = (ChangeIconColor) findViewById(R.id.id_indicator_three);
@@ -66,16 +84,31 @@ public class MainActivity extends FragmentActivity implements OnClickListener, O
      */
     public void initDatas()
     {
-        for (String title : fragmentTitle)
-        {
-            SessionListFragment sessionListFragment = new SessionListFragment();
-            Bundle bundle = new Bundle();
-            bundle.putString(SessionListFragment.TITLE, title);
-            sessionListFragment.setArguments(bundle);
-            mTabs.add(sessionListFragment);
-        }
-        
-        //定义viewpager的适配器，使得可以滑动操作
+        SessionListFragment sessionListFragment = new SessionListFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString(SessionListFragment.TITLE, fragmentTitle[0]);
+        sessionListFragment.setArguments(bundle);
+        mTabs.add(sessionListFragment);
+
+        FriendListFragment friendListFragment = new FriendListFragment();
+        bundle.clear();
+        bundle.putString(friendListFragment.TITLE, fragmentTitle[1]);
+        friendListFragment.setArguments(bundle);
+        mTabs.add(friendListFragment);
+
+        FriendListFragment friendListFragment2 = new FriendListFragment();
+        bundle.clear();
+        bundle.putString(friendListFragment2.TITLE, fragmentTitle[2]);
+        friendListFragment2.setArguments(bundle);
+        mTabs.add(friendListFragment2);
+
+        FriendListFragment friendListFragment3 = new FriendListFragment();
+        bundle.clear();
+        bundle.putString(friendListFragment3.TITLE, fragmentTitle[3]);
+        friendListFragment3.setArguments(bundle);
+        mTabs.add(friendListFragment3);
+
+        // 定义viewpager的适配器，使得可以滑动操作
         fragmentPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
 
             @Override
@@ -93,10 +126,19 @@ public class MainActivity extends FragmentActivity implements OnClickListener, O
     private void initEvent()
     {
         mViwePager.setOnPageChangeListener(this);
+        searchButton.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent searchActivity = new Intent(v.getContext(), SearchActivity.class);
+                startActivity(searchActivity);
+            }
+        });
     }
 
     /**
      * 点击tab标签
+     * 
      * @param v
      */
     public void clickTab(View v)
@@ -124,7 +166,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, O
                 break;
         }
     }
-    
+
     /**
      * 重置其他的View的标签
      * 
@@ -137,6 +179,37 @@ public class MainActivity extends FragmentActivity implements OnClickListener, O
         }
     }
 
+    public void onpopupmenu(View button) {
+        pop = new PopupMenu(this, button);
+        pop.getMenuInflater().inflate(R.menu.more_popupmenu, pop.getMenu());
+        pop.setOnMenuItemClickListener(new OnMenuItemClickListener() {
+
+            @Override
+            public boolean onMenuItemClick(MenuItem arg0) {
+
+                switch (arg0.getItemId()) {
+                    case R.id.item1:
+
+                        break;
+                    case R.id.item2:
+
+                        break;
+                    case R.id.item3:
+
+                        break;
+                    case R.id.item4:
+
+                        break;
+                    default:
+                        break;
+                }
+
+                return false;
+            }
+        });
+        pop.show();
+    }
+
     @Override
     public void onPageScrollStateChanged(int arg0) {
 
@@ -144,11 +217,12 @@ public class MainActivity extends FragmentActivity implements OnClickListener, O
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-     // Log.e("TAG", "position = " + position + " ,positionOffset =  "+ positionOffset);
-        if (positionOffset>0) {
+        // Log.e("TAG", "position = " + position + " ,positionOffset =  "+ positionOffset);
+        if (positionOffset > 0) {
+            Log.d("pageScrolledPosition", String.valueOf(position));
             ChangeIconColor left = tabIndicators.get(position);
-            ChangeIconColor right = tabIndicators.get(position +1);
-            left.setIconAlpha(1-positionOffset);
+            ChangeIconColor right = tabIndicators.get(position + 1);
+            left.setIconAlpha(1 - positionOffset);
             right.setIconAlpha(positionOffset);
         }
     }

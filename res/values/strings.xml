@@ -6,9 +6,15 @@
     <string name="hello_world">Hello world!</string>
     
     <!-- 自定义标签导航栏 -->
-    <string name="tabbar_contacts">会话</string>
-    <string name="tabbar_mainframe">通讯录</string>
+    <string name="tabbar_contacts">通讯录</string>
+    <string name="tabbar_mainframe">会话</string>
     <string name="tabbar_discover">发现</string>
     <string name="tabbar_me">我</string>
+    
+    <!-- popupmenu -->
+    <string name="item1">发起群聊</string>
+    <string name="item2">添加朋友</string>
+    <string name="item3">扫一扫</string>
+    <string name="item4">帮助与反馈</string>
 
 </resources>

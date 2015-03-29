@@ -32,7 +32,19 @@ public class ChatActivity extends Activity {
         //返回键按钮
         backButton.setOnClickListener(new OnClickListener() {
             @Override
-            public void onClick(View arg0) {
+            public void onClick(View v) {
+                Intent mainActivity = new Intent(v.getContext(),MainActivity.class);
+                startActivity(mainActivity);
+                finish();
+            }
+        });
+        //查看朋友信息按钮
+        friendInfo.setOnClickListener(new OnClickListener() {
+            
+            @Override
+            public void onClick(View v) {
+                Intent chatInfoActivity = new Intent(v.getContext(),ChatInfoActivity.class);
+                startActivity(chatInfoActivity);
                 finish();
             }
         });
