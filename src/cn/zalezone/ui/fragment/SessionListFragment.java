@@ -2,10 +2,10 @@ package cn.zalezone.ui.fragment;
 
 import java.util.ArrayList;
 
-import com.example.zalechat.ChatActivity;
 import com.example.zalechat.R;
 
 import cn.zalezone.domain.UserInfo;
+import cn.zalezone.ui.ChatActivity;
 import cn.zalezone.ui.adapter.SessionListAdapter;
 import android.content.Intent;
 import android.os.Bundle;
@@ -38,7 +38,7 @@ public class SessionListFragment extends Fragment {
         if (getArguments() != null) {
             mTitle = getArguments().getString(TITLE);
         }
-        View view = inflater.inflate(R.layout.session_list, container, false);
+        View view = inflater.inflate(R.layout.listview, container, false);
         listview = (ListView) view.findViewById(R.id.session_list);
         addData();
         adapter = new SessionListAdapter(userInfoslist, getActivity());
@@ -48,7 +48,7 @@ public class SessionListFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 Intent ChatActivityIntent = new Intent(v.getContext(),ChatActivity.class);
-                String name =((UserInfo)adapter.getItem(position)).getTitle();
+                String name =((UserInfo)adapter.getItem(position)).getName();
                 ChatActivityIntent.putExtra("title", name);
                 startActivity(ChatActivityIntent);
             }

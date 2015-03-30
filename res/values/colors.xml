@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <color name="light_gray">#F2F0F5</color>
     <color name="border_line">#ffd7dadc</color>
     <color name="white">#ffffffff</color>
     <color name="black">#ff000000</color>

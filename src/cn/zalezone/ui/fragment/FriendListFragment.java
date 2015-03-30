@@ -12,9 +12,10 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 import cn.zalezone.domain.UserInfo;
+import cn.zalezone.ui.ChatActivity;
+import cn.zalezone.ui.adapter.FriendListAdapter;
 import cn.zalezone.ui.adapter.SessionListAdapter;
 
-import com.example.zalechat.ChatActivity;
 import com.example.zalechat.R;
 
 public class FriendListFragment extends Fragment{
@@ -22,7 +23,7 @@ public class FriendListFragment extends Fragment{
     private String              mTitle = "default";
     private ListView            listview;
     private ArrayList<UserInfo> userInfoslist;
-    private SessionListAdapter  adapter;
+    private FriendListAdapter  adapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -36,17 +37,17 @@ public class FriendListFragment extends Fragment{
         if (getArguments() != null) {
             mTitle = getArguments().getString(TITLE);
         }
-        View view = inflater.inflate(R.layout.session_list, container, false);
+        View view = inflater.inflate(R.layout.listview, container, false);
         listview = (ListView) view.findViewById(R.id.session_list);
         addData();
-        adapter = new SessionListAdapter(userInfoslist, getActivity());
+        adapter = new FriendListAdapter(userInfoslist, getActivity());
         listview.setAdapter(adapter);
         listview.setOnItemClickListener(new OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 Intent ChatActivityIntent = new Intent(v.getContext(),ChatActivity.class);
-                String name =((UserInfo)adapter.getItem(position)).getTitle();
+                String name =((UserInfo)adapter.getItem(position)).getName();
                 ChatActivityIntent.putExtra("title", name);
                 startActivity(ChatActivityIntent);
             }

@@ -9,16 +9,16 @@ package cn.zalezone.domain;
 public class UserInfo {
     private String userId;
     private String alpha;
-    private String title;
+    private String name;
     private String time;
     private String des;
     private String messageHint;
 
-    public UserInfo(String userId, String alpha, String title, String time, String des, String messageHint)
+    public UserInfo(String userId, String alpha, String name, String time, String des, String messageHint)
     {
         this.userId = userId;
         this.alpha = alpha;
-        this.title = title;
+        this.name = name;
         this.time = time;
         this.des = des;
         this.messageHint = messageHint;
@@ -40,12 +40,12 @@ public class UserInfo {
         this.alpha = alpha;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getTime() {
