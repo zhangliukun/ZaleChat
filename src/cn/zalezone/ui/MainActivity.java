@@ -6,11 +6,11 @@ import java.util.List;
 import com.example.zalechat.R;
 
 import cn.zalezone.domain.UserInfo;
-import cn.zalezone.ui.color.ChangeIconColor;
 import cn.zalezone.ui.fragment.DiscoverFragment;
 import cn.zalezone.ui.fragment.FriendListFragment;
 import cn.zalezone.ui.fragment.MeFragment;
 import cn.zalezone.ui.fragment.SessionListFragment;
+import cn.zalezone.ui.myview.ChangeIconColor;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;

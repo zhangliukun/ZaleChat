@@ -1,16 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <attr name="icon" format="reference"></attr>
-    <attr name="color" format="color"></attr>
-    <attr name="text" format="string"></attr>
-    <attr name="text_size" format="dimension"></attr>
-
+    <!-- 自定义的分页导航组件 -->
     <declare-styleable name="changeColor">
-        <attr name="icon"></attr>
-        <attr name="color"></attr>
-        <attr name="text"></attr>
-        <attr name="text_size"></attr>
+        <attr name="icon" format="reference"></attr>
+        <attr name="color" format="color"></attr>
+        <attr name="text" format="string"></attr>
+        <attr name="text_size" format="dimension"></attr>
     </declare-styleable>
+    
+    <!-- 自定义的topBar组件 -->
+    <declare-styleable name="TopBar">
+        <attr name = "title" format="string"></attr>
+        <attr name = "titleTextSize" format="dimension"></attr>
+        <attr name = "titleTextColor" format="color"></attr>
+        <attr name = "leftTextColor" format="color"></attr>
+        <attr name = "leftBackground" format="reference|color"></attr>
+        <attr name = "leftText" format="string"></attr>
+        <attr name = "rightTextColor" format="color"></attr>
+        <attr name = "rightBackground" format="reference|color"></attr>
+        <attr name = "rightText" format="string"></attr>
+    </declare-styleable>
+    
 
 </resources>

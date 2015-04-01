@@ -56,7 +56,7 @@
         android:background="@drawable/tab_bg"
         android:orientation="horizontal" >
 
-        <cn.zalezone.ui.color.ChangeIconColor
+        <cn.zalezone.ui.myview.ChangeIconColor
             android:id="@+id/id_indicator_one"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
@@ -67,7 +67,7 @@
             zale:text_size="12sp"
             zale:color="#ff45c01a" />
 
-        <cn.zalezone.ui.color.ChangeIconColor
+        <cn.zalezone.ui.myview.ChangeIconColor
             android:id="@+id/id_indicator_two"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
@@ -78,7 +78,7 @@
             zale:text_size="12sp"
             zale:color="#ff45c01a" />
 
-        <cn.zalezone.ui.color.ChangeIconColor
+        <cn.zalezone.ui.myview.ChangeIconColor
             android:id="@+id/id_indicator_three"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
@@ -89,7 +89,7 @@
             zale:text_size="12sp"
             zale:color="#ff45c01a" />
 
-        <cn.zalezone.ui.color.ChangeIconColor
+        <cn.zalezone.ui.myview.ChangeIconColor
             android:id="@+id/id_indicator_four"
             android:layout_width="0dp"
             android:layout_height="fill_parent"

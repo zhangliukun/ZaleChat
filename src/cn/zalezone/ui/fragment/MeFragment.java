@@ -20,6 +20,10 @@ public class MeFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         
+        if (getArguments() != null) {
+            mTitle = getArguments().getString(TITLE);
+        }
+        
         View view = inflater.inflate(R.layout.fragment_me, container,false);
         return view;
     }
