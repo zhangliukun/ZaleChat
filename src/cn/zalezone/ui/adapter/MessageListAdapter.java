@@ -18,6 +18,12 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+
+/**
+ * 自定义的对话时消息框的adapter
+ * @author zlk
+ *
+ */
 public class MessageListAdapter extends BaseAdapter {
 
 	private static class ViewHolderRightText {

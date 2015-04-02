@@ -8,6 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+
+/**
+ * 显示自己的信息的fragment
+ * @author zlk
+ *
+ */
 public class MeFragment extends Fragment{
     public static final String  TITLE  = "title";
     private String              mTitle = "default";

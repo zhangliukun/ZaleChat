@@ -29,6 +29,12 @@ import android.widget.Button;
 import android.widget.PopupMenu;
 import android.widget.PopupMenu.OnMenuItemClickListener;
 
+
+/**
+ * 进入微信的主界面activity，这个activity中包含四个fragment，采用viewPager的滑动实现。
+ * @author zlk
+ *
+ */
 public class MainActivity extends FragmentActivity implements OnClickListener, OnPageChangeListener {
 
     private ViewPager             mViwePager;
@@ -88,24 +94,28 @@ public class MainActivity extends FragmentActivity implements OnClickListener, O
      */
     public void initDatas()
     {
+    	//会话列表页面
         SessionListFragment sessionListFragment = new SessionListFragment();
         Bundle bundle = new Bundle();
         bundle.putString(SessionListFragment.TITLE, fragmentTitle[0]);
         sessionListFragment.setArguments(bundle);
         mTabs.add(sessionListFragment);
 
+        //朋友列表页面
         FriendListFragment friendListFragment = new FriendListFragment();
         bundle.clear();
         bundle.putString(friendListFragment.TITLE, fragmentTitle[1]);
         friendListFragment.setArguments(bundle);
         mTabs.add(friendListFragment);
 
+        //发现朋友圈页面
         DiscoverFragment discoverFragment = new DiscoverFragment();
         bundle.clear();
         bundle.putString(discoverFragment.TITLE, fragmentTitle[2]);
         discoverFragment.setArguments(bundle);
         mTabs.add(discoverFragment);
 
+        //我的信息页面
         MeFragment meFragment = new MeFragment();
         bundle.clear();
         bundle.putString(meFragment.TITLE, fragmentTitle[3]);
@@ -183,6 +193,11 @@ public class MainActivity extends FragmentActivity implements OnClickListener, O
         }
     }
 
+    
+    /**
+     * 自己定义的pop弹出菜单
+     * @param button
+     */
     public void onpopupmenu(View button) {
         pop = new PopupMenu(this, button);
         pop.getMenuInflater().inflate(R.menu.more_popupmenu, pop.getMenu());
@@ -218,7 +233,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener, O
     public void onPageScrollStateChanged(int arg0) {
 
     }
-
+    
+    //通过滑动的position来计算图片的颜色
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
         // Log.e("TAG", "position = " + position + " ,positionOffset =  "+ positionOffset);
@@ -240,6 +256,9 @@ public class MainActivity extends FragmentActivity implements OnClickListener, O
 
     }
 
+    /**
+     * 点击后切换标签
+     */
     @Override
     public void onClick(View v) {
         clickTab(v);

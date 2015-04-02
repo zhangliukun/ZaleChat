@@ -18,6 +18,11 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
+/**
+ * 显示会话列表的fragment
+ * @author zlk
+ *
+ */
 public class SessionListFragment extends Fragment {
 
     public static final String  TITLE  = "title";
@@ -38,9 +43,13 @@ public class SessionListFragment extends Fragment {
         if (getArguments() != null) {
             mTitle = getArguments().getString(TITLE);
         }
+        
+        //获得listview控件
         View view = inflater.inflate(R.layout.listview, container, false);
         listview = (ListView) view.findViewById(R.id.session_list);
+        //增加listview中的数据
         addData();
+        //绑定adapter
         adapter = new SessionListAdapter(userInfoslist, getActivity());
         listview.setAdapter(adapter);
         listview.setOnItemClickListener(new OnItemClickListener() {
@@ -57,6 +66,9 @@ public class SessionListFragment extends Fragment {
         return view;
     }
 
+    /**
+     * 增加数据到list
+     */
     private void addData() {
         userInfoslist = new ArrayList<UserInfo>();
         UserInfo userInfo = new UserInfo("1", "zale", "张鎏锟", "早上8：00", "hello,我的英文名是zale", "2");

@@ -18,6 +18,12 @@ import cn.zalezone.ui.adapter.SessionListAdapter;
 
 import com.example.zalechat.R;
 
+
+/**
+ * 好友列表的Fragment
+ * @author zlk
+ *
+ */
 public class FriendListFragment extends Fragment{
     public static final String  TITLE  = "title";
     private String              mTitle = "default";

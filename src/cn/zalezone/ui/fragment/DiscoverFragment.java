@@ -8,6 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+
+/**
+ * 朋友圈发现的页面fragment
+ * @author zlk
+ *
+ */
 public class DiscoverFragment extends Fragment{
 
     public static final String  TITLE  = "title";

@@ -9,6 +9,13 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+
+/**
+ * 聊天信息activity
+ * @author zlk
+ *
+ */
+
 public class ChatInfoActivity extends Activity{
 
     private Button backButton;

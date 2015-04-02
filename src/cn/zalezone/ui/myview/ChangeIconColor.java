@@ -20,6 +20,12 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 
+/**
+ * 自定义的View，能够实现切换标签时进行变色效果
+ * @author zlk
+ *
+ */
+
 public class ChangeIconColor extends View
 {
 
@@ -185,6 +191,8 @@ public class ChangeIconColor extends View
 	private static final String INSTANCE_STATUS = "instance_status";
 	private static final String STATUS_ALPHA = "status_alpha";
 
+	
+	//保存数据，防止意外被kill掉以后能够保存状态信息
 	@Override
 	protected Parcelable onSaveInstanceState()
 	{

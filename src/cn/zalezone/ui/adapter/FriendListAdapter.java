@@ -14,6 +14,12 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+/**
+ * 朋友列表的自定义adapter
+ * @author zlk
+ *
+ */
+
 public class FriendListAdapter extends BaseAdapter{
 
     private ArrayList<UserInfo> list;           // 填充数据的list

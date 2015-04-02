@@ -19,6 +19,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
+
+/**
+ * 聊天的activity
+ * @author zlk
+ *
+ */
 public class ChatActivity extends Activity {
 
     private TextView friendName;
@@ -72,6 +78,7 @@ public class ChatActivity extends Activity {
             }
         });
         
+        //当点击输入框时将listview选择最后一行数据
         inputText.setOnClickListener(new OnClickListener() {
 			
 			@Override
