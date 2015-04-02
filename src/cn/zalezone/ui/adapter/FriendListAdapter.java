@@ -31,7 +31,6 @@ public class FriendListAdapter extends BaseAdapter{
         this.context = context;
         this.list = list;
         inflater = LayoutInflater.from(context);
-        this.list = list;
     }
 
     @Override
